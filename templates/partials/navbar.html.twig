@@ -1,0 +1,56 @@
+
+
+<div class="w-full fixed top-0 z-40  h-16">
+    <div id="navbar-social">
+        <div  class="hidden lg:block w-full bg-gray-200 h-10">
+            <div class="content h-full w-full flex items-center justify-between text-sm">
+                {#Social Media#}
+                <div class="flex items-center space-x-5">
+                    <a class="text-gray-300" href="{{ theme_var('facebook') }}">
+                        <img src="{{ url('theme://icons/facebook.svg') }}" alt="">
+                    </a>
+                    <a class="text-gray-300" href="{{ theme_var('twitter') }}">
+                        <img src="{{ url('theme://icons/twitter.svg') }}" alt="">
+                    </a>
+                    <a class="text-gray-300" href="{{ theme_var('instagram') }}">
+                        <img src="{{ url('theme://icons/instagram.svg') }}" alt="">
+                    </a>
+                </div>
+                <div class="flex items-center space-x-5">
+                    <a class="flex items-center space-x-2" href="tel:{{ theme_var('phone') }}">
+                        <img class="text-gray-300" src="{{ url('theme://icons/phone.svg') }}" alt="">
+                        <span>{{ theme_var('phone') }}</span>
+                    </a>
+                    <a class="flex items-center space-x-2" href="mailto:{{ theme_var('email') }}">
+                        <img class="text-gray-300" src="{{ url('theme://icons/mail.svg') }}" alt="">
+                        <span>{{ theme_var('email') }}</span>
+                    </a>
+                    <a class="flex items-center space-x-2" href="mailto:{{ theme_var('location') }}">
+                        <img class="text-gray-300" src="{{ url('theme://icons/map-pin.svg') }}" alt="">
+                        <span>{{ theme_var('location') }}</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="h-16 bg-gray-50 shadow-md">
+        <nav class="content py-2 h-full w-full flex items-center justify-between">
+            {% include 'partials/logo.html.twig' with {'class' : 'h-full'} %}
+
+            <div class="flex items-center space-x-4">
+                {% for page in pages.children.visible %}
+                    {#                {% set current_page = (page.active or page.activeChild) ? 'selected' : '' %}#}
+                    <a href=" {{ page.url|e }} ">
+                        {{ page.title }}
+                    </a>
+
+                {% endfor %}
+            </div>
+        </nav>
+    </div>
+
+
+
+</div>

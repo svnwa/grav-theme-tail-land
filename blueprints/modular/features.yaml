@@ -1,0 +1,34 @@
+title: Features
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        features:
+          type: tab
+          title: Features
+          fields:
+            header.button:
+              name: button
+              type: array
+              label: button
+              placeholder_key: Button text ('Discover more')
+              placeholder_value: Button Link ('/services')
+            header.features:
+              name: features
+              type: list
+              style: vertical
+              label: Features
+              fields:
+                .icon:
+                  type: filepicker
+                  label: Feather Icon
+                  folder: 'theme://icons'
+                  preview_images: true
+                .title:
+                  type: text
+                  label: Title
+                .text:
+                  type: text
+                  label: Text

@@ -1,0 +1,15 @@
+title: Hero
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        hero:
+          type: tab
+          title: Hero
+          fields:
+            header.image:
+              type: filepicker
+              label: Background Image
+              preview_images: true

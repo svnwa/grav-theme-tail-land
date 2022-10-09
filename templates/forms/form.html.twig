@@ -1,0 +1,40 @@
+{% set fields = form.fields %}
+{% set data = form.getData() %}
+{% set errors = form.getErrors() %}
+{{ dump(errors) }}
+<form name="{{ form.name }}" id="{{ form.id }}" action="{{ form.action }}" method="POST">
+    {% if form.message == "Are you a bot?" %} <p class="text-red-400 font-basic text-sm">Fehler beim Senden Ihrer Nachricht. {{ form.message|t|e }}</p> <button class="button" type="button" onclick="window.location.href('/');">Seite neu laden</button> {% endif %}
+    <div class="flex flex-wrap -m-2">
+        <div class="p-2 w-full ">
+            <div class="relative">
+                <label for="vorname" class="leading-7 text-sm text-gray-600 font-basic">{{ fields.name.label|capitalize }} {% if fields.name.validate.required %} <span class="required">*</span> {% endif %}</label>
+                <input value="{{ data.vorname }}" {% if fields.vorname.autocomplete == 'on' %} autocomplete="given-name" {% endif %} placeholder="{{ fields.name.placeholder }}"  type="text" id="vorname" name="vorname" class="w-full bg-white  rounded border shadow-sm focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  />
+                {% if errors.name %} <p class="text-red-400 font-basic text-sm" >{{ errors.name|first|t|e }}</p> {% endif %}
+            </div>
+        </div>
+        <div class="p-2 w-full ">
+            <div class="relative">
+                <label for="email" class="leading-7 text-sm text-gray-600 font-basic">{{ fields.email.label|capitalize }} {% if fields.email.validate.required %} <span class="required">*</span> {% endif %}</label>
+                <input value="{{ data.email }}" {% if fields.email.autocomplete == 'on' %} autocomplete="email" {% endif %} placeholder="{{ fields.email.placeholder }}" type="email" id="email" name="email" class="w-full bg-white  rounded border shadow-sm focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  />
+                {% if errors.email %} <p class="text-red-400 font-basic text-sm" >{{ errors.email|first|t|e }}</p> {% endif %}
+            </div>
+        </div>
+        <div class="p-2 w-full">
+            <div class="relative">
+                <label for="message" class="leading-7 text-sm text-gray-600 font-basic">{{ fields.message.label|capitalize }} {% if fields.message.validate.required %} <span class="required">*</span> {% endif %}</label>
+                <textarea value="{{ data.message }}" id="message" name="message" placeholder="{{ fields.message.placeholder }}" class="w-full resize-y bg-white  rounded border shadow-sm focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary h-32 text-base outline-none text-gray-700 py-1 px-3 leading-6 transition-colors duration-200 ease-in-out" ></textarea>
+                {% if errors.message %} <p class="text-red-400 font-basic text-sm" >{{ errors.message|first|t|e }}</p> {% endif %}
+            </div>
+        </div>
+        <label>
+            <input autocomplete="off" class="hidden" name="{{ fields._name.label|capitalize }}">
+        </label>
+        <input type="hidden" name="__form-name__" value="{{ form.name }}">
+        <input type="hidden" name="__unique_form_id__" value="{{ form.getUniqueId() }}">
+        <input type="hidden" name="form-nonce" value="{{ form.getNonce() }}">
+
+        <div class="p-2 ">
+            <button type="submit" class="flex mx-auto text-white bg-primary border-0 py-2 px-8 focus:outline-none hover:bg-primary-darker ease-in-out duration-500 rounded-xl text-lg font-basic">Send</button>
+        </div>
+    </div>
+</form>

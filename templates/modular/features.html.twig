@@ -1,0 +1,23 @@
+<section class="py-28">
+    <div class="content w-full flex flex-col sm:flex-row">
+        <div class="space-y-8">
+            <h2 class="text-lg font-semibold uppercase text-primary">{{ page.title }}</h2>
+            <h3 class="text-3xl font-semibold w-60 ">{{ page.content|raw }}</h3>
+            <div>
+                <a href="{{ page.header.button|first }}" class="w-max py-3 px-4 bg-primary font-semibold text-white">{{ page.header.button|keys|first }}</a>
+            </div>
+        </div>
+        <div class="pt-8 sm:pt-0 grid lg:grid-cols-2 gap-10 sm:w-max 2xl:w-1/2 ml-auto">
+            {% for feature in page.header.features %}
+                <div class="flex items-start space-x-8">
+                    <img class="text-gray-300 w-10 h-10 mt-1" src="{{ url('theme://icons/'~feature.icon) }}" alt="">
+                    <div>
+                        <h5 class="font-medium text-lg pb-2">{{ feature.title }}</h5>
+                        <p>{{ feature.text }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+

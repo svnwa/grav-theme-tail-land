@@ -1,0 +1,11 @@
+{% set logo = theme_var('logo') %}
+
+<a class="h-full" href="{{ home_url }}" >
+    {% if logo %}
+        {% set src = (logo|first).path %}
+    {% else %}
+        {% set src = url('theme://images/grav-logo.png') %}
+    {% endif %}
+
+    <img class="{{ class }}" src="{{ src }}" alt="{{ site.title }}" />
+</a>

@@ -1,0 +1,11 @@
+<section class="py-28 bg-gray-50">
+    <div class="content w-full flex flex-col lg:flex-row lg:space-x-20">
+        <div class="space-y-8 lg:w-1/2">
+            <h2 class="text-lg font-semibold uppercase text-primary">{{ page.title }}</h2>
+            <div class="markdown">{{ page.content|raw }}</div>
+        </div>
+        <div class="lg:w-1/2 ">
+            <img class="w-full rounded" src="{{ page.media[page.header.image].url }}" alt="">
+        </div>
+    </div>
+</section>

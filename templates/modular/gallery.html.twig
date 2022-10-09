@@ -1,0 +1,20 @@
+<section class="py-28 bg-white">
+    <div class="content ">
+        <div class="space-y-8 w-1/2">
+            <h2 class="text-lg font-semibold uppercase text-primary">{{ page.title }}</h2>
+            <div class="markdown">{{ page.content|raw }}</div>
+        </div>
+        <div class="pswp-gallery  sm:columns-3 gap-8 pt-10" id="gallery--getting-started">
+            {#grid grid-cols-3#}
+
+            {% for image in page.media %}
+                <a class="w-full inline-block mb-6 group" href="{{ image.url }}"
+                   data-pswp-width="{{ image.width }}"
+                   data-pswp-height="{{ image.height }}"
+                   target="_blank">
+                    <img class="w-full  object-cover rounded-md tranform group-hover:scale-105 ease-in-out duration-200 shadow-md" src="{{ image.url }}" alt="{{ image.basename }}" />
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>

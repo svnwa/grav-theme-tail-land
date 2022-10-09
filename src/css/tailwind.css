@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .content{
+    @apply container px-6  mx-auto
+  }
+
+
+
+}
+
+@layer components {
+
+}
+
+@layer utilities {
+  .markdown > h1 {
+    @apply text-3xl font-bold mb-5;
+  }
+  .markdown > h2 {
+    @apply text-2xl font-semibold mb-5;
+  }
+  .markdown > h3 {
+    @apply text-xl font-semibold mb-5;
+  }
+  .markdown > h4 {
+    @apply text-lg font-medium mb-5;
+  }
+  .markdown > h5 {
+    @apply text-lg font-medium mb-5;
+  }
+  .markdown > p {
+    @apply text-base mb-5;
+  }
+  .markdown > ul {
+    @apply list-disc list-outside;
+  }
+  .markdown > a {
+    @apply decoration-2 decoration-primary hover:decoration-primary underline underline-offset-2 ease-in-out duration-500 text-primary hover:text-primary;
+  }
+  .markdown > ul {
+    @apply list-disc list-inside;
+  }
+
+  .img > .svg {
+    @apply fill-primary
+  }
+}
+
+html{
+  scroll-behavior: smooth;
+  --scrollbarBG: rgba(246, 246, 246,0%);
+  --thumbBG: #005a80;
+}
+
+body{
+  scrollbar-width: auto;
+  scrollbar-color: var(--thumbBG);
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  border: 0px solid var(--scrollbarBG);
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 12px;
+  border: 0px solid var(--scrollbarBG);
+}

@@ -1,0 +1,19 @@
+<ul>
+    {% for page in pages.children.visible %}
+        {% set current_page = (page.active or page.activeChild) ? 'selected' : '' %}
+        <li class="{{ current_page|e }}">
+            <a href="{{ page.url|e }}">
+                {% if page.header.icon %}<i class="fa fa-{{ page.header.icon|e }}"></i>{% endif %}
+                {{ page.menu|e }}
+            </a>
+        </li>
+    {% endfor %}
+    {% for mitem in site.menu %}
+        <li>
+            <a href="{{ mitem.url|e }}">
+                {% if mitem.icon %}<i class="fa fa-{{ mitem.icon|e }}"></i>{% endif %}
+                {{ mitem.text|e }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
